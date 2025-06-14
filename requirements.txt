@@ -9,5 +9,4 @@ xgboost
 dill
 flask
 flask_cors
-lime
 -e .
