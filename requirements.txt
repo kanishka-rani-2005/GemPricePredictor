@@ -3,11 +3,11 @@ numpy
 scikit-learn
 seaborn
 matplotlib
+ipykernel
 catboost
 xgboost
 dill
 flask
 flask_cors
 lime
-ipykernel
 -e .
