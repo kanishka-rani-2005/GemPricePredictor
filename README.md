@@ -35,7 +35,7 @@ The web interface is built using **Flask** and styled with HTML, CSS, and basic 
 
 Here is a screenshot of the working web application interface:
 
-![Gemstone Price Prediction UI](static/css/image/image.png)
+![Gemstone Price Prediction UI](static\\css\\image\\image.png)
 
 
 
