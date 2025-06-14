@@ -3,7 +3,7 @@ import pandas as pd
 from src.exception import CustomException
 from src.logger import logging
 from src.utils import load_object
-
+import os
 
 
 class PredictPipeline:
@@ -13,10 +13,16 @@ class PredictPipeline:
 
     def predict(self,features):
         try:
-            preprocessor_path='artifacts\\preprocessor.pkl'
-            model_path='artifacts\\model.pkl'
+            preprocessor_path = os.path.join('artifacts', 'preprocessor.pkl')
+            model_path = os.path.join('artifacts', 'model.pkl')
             preprocessor=load_object(preprocessor_path)
             model=load_object(model_path)
+
+            if not hasattr(preprocessor, 'transform'):
+                 raise CustomException("Loaded preprocessor is not valid.", sys)
+
+            if not hasattr(model, 'predict'):
+                raise CustomException("Loaded model is not valid.", sys)
 
             data_scaled=preprocessor.transform(features)
             pred=model.predict(data_scaled)
